@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                bat 'npm --version'
+                //bat 'npm --version'
+                echo 'Building..'
             }
         }
     }
