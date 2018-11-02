@@ -1,0 +1,16 @@
+version: '3.6'
+
+services:
+  translatorAcceptDocumentUpload:
+    image: "hcr.io/cad/forgetranslation:0.1.0-alpha"  
+    ports:
+      - 25234:80
+  newmanService:
+    # Causes Docker Compose to delay starting configuration_data_service until translatorAcceptDocumentUpload is started.
+    depends_on:
+      - translatorAcceptDocumentUpload
+    image: postman/newman_ubuntu1404
+    network_mode: host
+    #command: run  "http://qa-022648.onbase.net/PostmanTests/OriginalDemo/FirstForge%20Demo.postman_collection.json" --environment "http://qa-022648.onbase.net/PostmanTests/OriginalDemo/ForgeEnvironment.postman_environment.json"
+    #command:  "http://qa-022648.onbase.net/PostmanTests/TranslatorAcceptDocumentUpload/sleep.sh"
+    command: run "http://qa-022648.onbase.net/PostmanTests/TranslatorAcceptDocumentUpload/Translator_Accept_Document_Upload.postman_collection.json"
