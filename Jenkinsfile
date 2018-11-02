@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                powershell 'npm --version'
+                echo 'testing this'
             }
         }
     }
