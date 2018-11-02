@@ -1,7 +1,6 @@
 pipeline {
     //agent {docker { image 'postman/newman_ubuntu1404' }}
-    agent { node {
-                    label 'Windows && 1709'}
+    agent { node {label 'Windows && 1709'}}
     stages {
         stage('build') {
             steps {
