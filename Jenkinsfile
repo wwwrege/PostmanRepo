@@ -1,5 +1,6 @@
 pipeline {
-    agent {docker { image 'postman/newman_ubuntu1404' }}
+    //agent {docker { image 'postman/newman_ubuntu1404' }}
+    agent none
     stages {
         stage('build') {
             steps {
